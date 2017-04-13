@@ -2,5 +2,15 @@
 *.xml
 
 *.iml
+<<<<<<< Updated upstream
 *.pyc
 RenMinDeMingYi_Data.csv
+=======
+<<<<<<< HEAD
+
+*.pyc
+=======
+*.pyc
+RenMinDeMingYi_Data.csv
+>>>>>>> origin/master
+>>>>>>> Stashed changes
