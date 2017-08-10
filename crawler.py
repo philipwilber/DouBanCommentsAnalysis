@@ -24,8 +24,8 @@ class Crawler(object):
 
         formdata = {
             'redir': url,
-            'form_email': 'philipwilber@vip.qq.com',
-            'form_password': 'oo3wcz112p',
+            'form_email': '',
+            'form_password': '',
             'login': u'登录',
             "source": "index_nav"
         }
@@ -95,8 +95,8 @@ class Crawler(object):
             time.sleep(random.uniform(0, 2))
             return self.login(url)
         else:
-            time.sleep(random.uniform(0, 3))
-            r = s.get(url, headers=cons.headers, cookies=cookies, timeout=cons.TIMEOUT)
+            time.sleep(random.uniform(0, 4))
+            r = s.get(url, headers=cons.headers, cookies=cookies)
             if(r.status_code == 200):
                 print('url: ' + url)
                 return self.get_short_comments(r.text, s, cookies)
