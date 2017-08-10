@@ -4,7 +4,7 @@ url = 'https://movie.douban.com/subject/26363254'
 url_cmts_1 = ['collections', 'wishes', 'doings']
 # 短评
 # url_cmts_2 = ['/comments', '?sort=time&status=P']
-url_cmts_2 = ['/comments', '?start=79646&limit=20&sort=new_score&status=P']
+url_cmts_2 = ['/comments', '?start=145915&limit=20&sort=new_score&status=P']
 # 剧评
 url_cmts_3 = '/reviews'
 

@@ -21,7 +21,7 @@ class Crawler(object):
     def login(self, url):
         # user_name = input('Username(Email):')
         # pwd = input('Password:')
-
+        print('Start Login')
         formdata = {
             'redir': url,
             'form_email': '',
@@ -38,7 +38,6 @@ class Crawler(object):
         soup = bs(content, 'lxml')
         captcha = soup.find('img', id='captcha_image')
         if (captcha):
-            print('Login: ')
             r = self.get_captcha(cons.url_login, s, captcha, formdata)
 
         if r.status_code == 200:
@@ -52,6 +51,7 @@ class Crawler(object):
             return self.login(url)
 
     def get_au(self, url):
+        print('Start authorize')
         formdata = {
             'ck': 'Mxfv'
         }
@@ -96,7 +96,7 @@ class Crawler(object):
             return self.login(url)
         else:
             time.sleep(random.uniform(0, 4))
-            r = s.get(url, headers=cons.headers, cookies=cookies)
+            r = s.get(url, headers=cons.headers, cookies=cookies, timeout=cons.TIMEOUT)
             if(r.status_code == 200):
                 print('url: ' + url)
                 return self.get_short_comments(r.text, s, cookies)
