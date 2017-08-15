@@ -145,7 +145,7 @@ class Crawler(object):
                        'time': time,
                        'votes': votes,
                        'desc': desc}
-                if (not self.pd.check_record_exist(id)):
+                if (not self.pd.check_record_exist_zhanlang2(id)):
                     self.pd.add_zhanlang2(dic)
                     print(id)
                     self.record_index += 1
@@ -154,7 +154,7 @@ class Crawler(object):
             print('Number of pages : ' + str(self.page_index))
             next_url = tree.xpath('//div[@id="paginator"]/a[@class="next"]/@href')
             if next_url != None:
-                return [cons.url + cons.url_cmts_2[0] + next_url[0], s, cookies]
+                return [cons.url_zhanlang2 + cons.url_cmts_2[0] + next_url[0], s, cookies]
             else:
                 return ['', s, cookies]
 
@@ -176,7 +176,7 @@ class Crawler(object):
         s = None
         cookies = None
         # 获取短评
-        url = cons.url + cons.url_cmts_2[0] + cons.url_cmts_2[1]
+        url = cons.url_zhanlang2 + cons.url_cmts_2[0] + cons.url_cmts_2[1]
         while len(url) > 0:
             li = self.get_page(url, s, cookies, is_login)
             url = li[0]

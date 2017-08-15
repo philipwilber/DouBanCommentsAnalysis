@@ -1,10 +1,11 @@
 url_login = 'https://accounts.douban.com/login'
-url = 'https://movie.douban.com/subject/26363254'
+url_zhanlang = 'https://movie.douban.com/subject/24753810'
+url_zhanlang2 = 'https://movie.douban.com/subject/26363254'
 # 评价
 url_cmts_1 = ['collections', 'wishes', 'doings']
 # 短评
-# url_cmts_2 = ['/comments', '?sort=time&status=P']
-url_cmts_2 = ['/comments', '?start=145915&limit=20&sort=new_score&status=P']
+url_cmts_2 = ['/comments', '?sort=time&status=P']
+# url_cmts_2 = ['/comments', '?start=120000&limit=20&sort=new_score&status=P']
 # 剧评
 url_cmts_3 = '/reviews'
 

@@ -10,6 +10,7 @@ class DBProvider(object):
         conn = MongoClient('localhost', 27017)
         self.db = conn.DB_DOUBAN
         self.TB_ZHANLANG2 = self.db.TB_ZHANLANG2
+        self.TB_ZHANLANG = self.db.TB_ZHANLANG
 
     def add_zhanlang2(self, dict):
         self.TB_ZHANLANG2.insert(dict)
@@ -17,8 +18,21 @@ class DBProvider(object):
     def get_zhanlang2(self):
         return self.self.TB_ZHANLANG2.find()
 
-    def check_record_exist(self, id):
+    def check_record_exist_zhanlang2(self, id):
         count = self.TB_ZHANLANG2.find({'id': id}).count()
+        if count > 0:
+            return True
+        else:
+            return False
+
+    def add_zhanlang(self, dict):
+        self.TB_ZHANLANG.insert(dict)
+
+    def get_zhanlang(self):
+        return self.self.TB_ZHANLANG.find()
+
+    def check_record_exist_zhanlang(self, id):
+        count = self.TB_ZHANLANG.find({'id': id}).count()
         if count > 0:
             return True
         else:
