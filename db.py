@@ -1,6 +1,8 @@
 import pandas as pd
 import sys
 from sqlalchemy import create_engine, MetaData, Table, select
+from datetime import datetime
+
 
 from pymongo import *
 
@@ -18,9 +20,18 @@ class DBProvider(object):
     def get_zhanlang2(self):
         return self.self.TB_ZHANLANG2.find()
 
-    def check_record_exist_zhanlang2(self, id):
+    def check_record_exist_zhanlang2(self, id, dict):
         count = self.TB_ZHANLANG2.find({'id': id}).count()
         if count > 0:
+            self.TB_ZHANLANG2.update({
+                'id': id
+            }, {
+                '$set': {
+                    'time': dict['time'],
+                    'votes': dict['votes'],
+                    'upt_date' : datetime.now()
+                }
+            }, False, True)
             return True
         else:
             return False
