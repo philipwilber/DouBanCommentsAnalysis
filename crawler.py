@@ -19,7 +19,7 @@ class Crawler(object):
         self.page_index = 0
         self.cre_record_index = 0
         self.upt_record_index = 0
-        self.cmts_index = 92140
+        self.cmts_index = 111420
 
     def login(self, url):
         # user_name = input('Username(Email):')
