@@ -49,6 +49,28 @@ class DBProvider(object):
         else:
             return False
 
+    def add_zhanlang2(self, dict):
+        self.TB_ZHANLANG2.insert(dict)
+
+    def get_zhanlang2(self):
+        return self.self.TB_ZHANLANG2.find()
+
+    def check_record_exist_zhanlang2(self, id, dict):
+        count = self.TB_ZHANLANG2.find({'id': id}).count()
+        if count > 0:
+            self.TB_ZHANLANG2.update({
+                'id': id
+            }, {
+                '$set': {
+                    'time': dict['time'],
+                    'votes': dict['votes'],
+                    'upt_date' : datetime.now()
+                }
+            }, False, True)
+            return True
+        else:
+            return False
+
     def save_to_csv(dict, name):
         df = pd.DataFrame(dict)
         df.to_csv(str(name) + '.csv', index=False, encoding="utf-8")
